@@ -28,8 +28,8 @@ def callback(objetivo):
 	comando = ModelState()
 	comando.pose.position.y = selfState.pose.position.y
 	comando.pose.position.z = selfState.pose.position.z
-	comando.pose.position.x = selfState.pose.position.x
-
+	comando.pose.position.x = selfState.pose.position.x	
+	
 	comando.pose.orientation.x = selfState.pose.orientation.x
 	comando.pose.orientation.y = selfState.pose.orientation.y
 	comando.pose.orientation.z = selfState.pose.orientation.z
@@ -37,7 +37,6 @@ def callback(objetivo):
 
 	self_roll, self_pitch, self_yaw = quaternion2euler(selfState.pose.orientation)
 	obj_roll, obj_pitch, obj_yaw = quaternion2euler(objetivo.orientation)
-
 
 	comando.twist.linear.x = 0.5*(objetivo.position.x - selfState.pose.position.x)
 	comando.twist.linear.y = 0.5*(objetivo.position.y - selfState.pose.position.y)
@@ -52,12 +51,13 @@ def callback(objetivo):
 	pub.publish(comando)
 
 
+
 def controle():
 
 	objetivoMsgs = "objetivo_" + modelname
 	rospy.Subscriber(objetivoMsgs, Pose, callback)
 
-	rospy.init_node('controle', anonymous=True)
+	rospy.init_node(modelname , anonymous=True)
 
 	rospy.spin()
 
@@ -69,7 +69,8 @@ if __name__ == '__main__':
 	else:
 		print "Favor fornecer o nome de um model ativo"
 		sys.exit(1)
-	try:
-		controle()
-	except rospy.ROSInterruptException:
-		pass
+	#try:
+	#	controle()
+	#except rospy.ROSInterruptException:
+	#	pass
+	controle()

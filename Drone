@@ -1,0 +1,60 @@
+https://warthog.assembla.com/spaces/warthog-scorpius/git-7/source/master/p3dx_2dnav/src/NavGoals.py#ln110
+
+
+rosrun gazebo_ros gazebo $(rospack find formacao)/world/Estufa.world
+rosrun gazebo_ros gazebo $(rospack find formacao)/world/Estufa2.world
+
+scripit ros launch
+
+rostopic pub -r 10 objetivo_lider geometry_msgs/Pose "position:
+  x: -1.950
+  y: 0.0
+  z: 0.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0"
+
+rostopic pub -r 10 objetivo_lider geometry_msgs/Pose "position:
+  x: -1.950
+  y: 0.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+
+rostopic pub -r 10 objetivo_lider geometry_msgs/Pose "position:
+  x: -1.950
+  y: 22.20
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0"
+
+rostopic pub -r 10 objetivo_lider geometry_msgs/Pose "position:
+  x: -1.950
+  y: 22.20
+  z: 0.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+
+la consiste em um conjunto de 3 estufas de aproximadamente de 10x30, formando uma estufa grande de 30x30.
+
+Porém só vamos usar o vai central.
+Já te mando as imagens
+
+Sendo assim vc pode considerar um vão de 10x30 para o voo.
+
+No caobque vamos usar e uma caixa d'água de 1000 l com espaçamento de uns 40 cm entre elas 
+
+Se não me engano ela é 1m de largura ,1m de comprimento e 60 cm de profundidade.
+
+Porém só estão preenchidas com 50 cm de solo

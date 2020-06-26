@@ -6423,10 +6423,10 @@
       <pose frame=''>0.033468 4.9867 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>241 994000000</sim_time>
-      <real_time>141 618570103</real_time>
-      <wall_time>1591470496 127331047</wall_time>
-      <iterations>114131</iterations>
+      <sim_time>279 972000000</sim_time>
+      <real_time>43 388159655</real_time>
+      <wall_time>1592571441 701775306</wall_time>
+      <iterations>37978</iterations>
       <model name='Estufa-objetos'>
         <pose frame=''>0.033468 4.9867 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -6842,23 +6842,23 @@
         </link>
       </model>
       <model name='lider'>
-        <pose frame=''>-1.95 1e-06 0.799999 -1.3e-05 -0 -0.004033</pose>
+        <pose frame=''>-1.94999 -2e-06 0.800001 -6e-06 -0 -0.003903</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-1.95 3e-06 0.982465 -1.3e-05 -0 -0.004033</pose>
+        <link name='lider::link'>
+          <pose frame=''>-1.94999 -1e-06 0.982467 -6e-06 -0 -0.003903</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -12.8968 0 -0 0</wrench>
         </link>
       </model>
       <model name='seg1'>
-        <pose frame=''>1.95002 5e-06 0.800001 7e-06 -0 0.002005</pose>
+        <pose frame=''>1.95003 6e-06 0.8 -6e-06 0 0.001994</pose>
         <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>1.95002 4e-06 0.982467 7e-06 -0 0.002005</pose>
+        <link name='seg1::link'>
+          <pose frame=''>1.95003 7e-06 0.982466 -6e-06 0 0.001994</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -12.8968 0 -0 0</wrench>
         </link>
       </model>
       <light name='sun'>
@@ -6867,13 +6867,13 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>5.83601 18.2988 8.94787 0 0.381798 -1.76614</pose>
+        <pose frame=''>2.29602 19.9269 6.6813 0 0.381798 -1.76614</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
     <model name='lider'>
-      <link name='link'>
+      <link name='lider::link'>
         <pose frame=''>-0 -0 0.182466 0 -0 0</pose>
         <inertial>
           <mass>1.316</mass>
@@ -6888,7 +6888,7 @@
         </inertial>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <visual name='visual'>
           <geometry>
             <mesh>
@@ -6961,7 +6961,7 @@
       <pose frame=''>-1.95 1e-06 0.799999 -1.3e-05 -0 -0.004033</pose>
     </model>
     <model name='seg1'>
-      <link name='link'>
+      <link name='seg1::link'>
         <pose frame=''>-0 0 0.182466 0 -0 0</pose>
         <inertial>
           <mass>1.316</mass>
@@ -6976,7 +6976,7 @@
         </inertial>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
+        <kinematic>1</kinematic>
         <visual name='visual'>
           <geometry>
             <mesh>

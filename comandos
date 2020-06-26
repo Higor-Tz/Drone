@@ -1,0 +1,72 @@
+higor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geometry_msgs/Pose "position:
+  x: 8.05
+  y: 0.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: 8.05
+  y: 26.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: -1.95
+  y: 26.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: -1.95
+  y: 0.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: -1.95
+  y: 26.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: -11.95
+  y: 26.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: -11.95
+  y: 0.0
+  z: 2.0
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 
+^Chigor@higor-Inspiron-3576:~/catkin_ws$ rostopic pub -r 10 objetivo_lider geomey_msgs/Pose "position:
+  x: -11.95
+  y: 0.0
+  z: 0.81
+orientation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  w: 0.0" 

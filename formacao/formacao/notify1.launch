@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<node pkg="formacao" type="controle.py" name="controlelider"
+    args="lider"/>
+
+	<node pkg="formacao" type="controle.py" name="controleseg"
+    args="seg1"/>
+
+	<node pkg="formacao" type="movimentacaoDGF.py" name="movimentacaoDGF"
+    args="seg1 lider 3.9 0 0"/>
+
+</launch>
