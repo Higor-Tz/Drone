@@ -52,18 +52,20 @@ def callback(objetivo):
 
 
 
-def controle():
-
+def controle(modelname):
+	rospy.init_node(modelname , anonymous=True)
 	objetivoMsgs = "objetivo_" + modelname
 	rospy.Subscriber(objetivoMsgs, Pose, callback)
-
-	rospy.init_node(modelname , anonymous=True)
-
+	
+	#print rospy.search_param("modelName")
+	#modelname = rospy.get_param("modelName")
+	
 	rospy.spin()
 
 
 if __name__ == '__main__':
-	if len(sys.argv) == 2:
+	print sys.argv
+	if len(sys.argv) > 1:
 		modelname = sys.argv[1]
 		print 'modelname:' + modelname
 	else:
@@ -73,4 +75,4 @@ if __name__ == '__main__':
 	#	controle()
 	#except rospy.ROSInterruptException:
 	#	pass
-	controle()
+	controle(modelname)

@@ -4,6 +4,15 @@ https://warthog.assembla.com/spaces/warthog-scorpius/git-7/source/master/p3dx_2d
 rosrun gazebo_ros gazebo $(rospack find formacao)/world/Estufa.world
 rosrun gazebo_ros gazebo $(rospack find formacao)/world/Estufa2.world
 
+source devel/setup.bash
+roslaunch formacao notify1.launch
+rosrun formacao roteiro.py
+
+
+chmod gu+x src/formacao/formacao/scripts/roteiro.py
+sudo !!
+
+
 scripit ros launch
 
 rostopic pub -r 10 objetivo_lider geometry_msgs/Pose "position:

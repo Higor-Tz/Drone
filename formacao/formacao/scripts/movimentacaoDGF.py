@@ -45,7 +45,7 @@ def movimentacao():
 		rate.sleep()
 
 if __name__ == '__main__':
-	if len(sys.argv) == 6:
+	if len(sys.argv) > 5:
 		modelname = sys.argv[1]
 		alvoname = sys.argv[2]
 		movX = float(sys.argv[3])
