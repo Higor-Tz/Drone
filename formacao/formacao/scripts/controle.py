@@ -36,30 +36,40 @@ def callback(objetivo):
 	global indexold,flagBlock
 	print objetivo
 
-	pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=1)#10
+	pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=10)#10
 	rospy.wait_for_service('gazebo/get_model_state')
 	
 	GetState = rospy.ServiceProxy('gazebo/get_model_state', GetModelState)
 	selfState = GetState(modelname, 'world')
 	#selfState = objetivo
+	#State = objetivo
 
 	comando = ModelState()
 	comando.pose.position.y = selfState.pose.position.y
 	comando.pose.position.z = selfState.pose.position.z
 	comando.pose.position.x = selfState.pose.position.x	
-	
-	#comando.pose.orientation.x = selfState.pose.orientation.x
-	#comando.pose.orientation.y = selfState.pose.orientation.y
-	#comando.pose.orientation.z = selfState.pose.orientation.z
-	#comando.pose.orientation.w = selfState.pose.orientation.w
 
+	#comando.pose.position.y = State.pose.position.y
+	#comando.pose.position.z = State.pose.position.z
+	#comando.pose.position.x = State.pose.position.x	
+
+	comando.pose.orientation.x = selfState.pose.orientation.x
+	comando.pose.orientation.y = selfState.pose.orientation.y
+	comando.pose.orientation.z = selfState.pose.orientation.z
+	comando.pose.orientation.w = selfState.pose.orientation.w
+
+	#self_roll, self_pitch, self_yaw = quaternion2euler(State.pose.orientation)
 	self_roll, self_pitch, self_yaw = quaternion2euler(selfState.pose.orientation)
-	obj_roll, obj_pitch, obj_yaw = quaternion2euler(objetivo.orientation)
+	obj_roll, obj_pitch, obj_yaw = quaternion2euler(objetivo.pose.orientation)
 
-	comando.twist.linear.x = 0.5*(objetivo.position.x - selfState.pose.position.x)
-	comando.twist.linear.y = 0.5*(objetivo.position.y - selfState.pose.position.y)
-	comando.twist.linear.z = 0.5*(objetivo.position.z - selfState.pose.position.z)	
+	comando.twist.linear.x = 0.5*(objetivo.pose.position.x - selfState.pose.position.x)
+	comando.twist.linear.y = 0.5*(objetivo.pose.position.y - selfState.pose.position.y)
+	comando.twist.linear.z = 0.5*(objetivo.pose.position.z - selfState.pose.position.z)	
 	
+	#comando.twist.linear.x = 0.5*(objetivo.pose.position.x - State.pose.position.x)
+	#comando.twist.linear.y = 0.5*(objetivo.pose.position.y - State.pose.position.y)
+	#comando.twist.linear.z = 0.5*(objetivo.pose.position.z - State.pose.position.z)		
+
 	comando.twist.angular.x = 0.25*(obj_roll - self_roll)
 	comando.twist.angular.y = 0.25*(obj_pitch - self_pitch)
 	comando.twist.angular.z = 0.25*(obj_yaw - self_yaw)
@@ -125,7 +135,7 @@ def controle(modelname):
 
 	
 	rospy.init_node(modelname , anonymous=True)
-	rate = rospy.Rate(1) # 10hz
+	rate = rospy.Rate(0.1) # 0.1hz
 
 	while not rospy.is_shutdown():
 		RunDrone()
