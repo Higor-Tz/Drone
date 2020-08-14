@@ -44,6 +44,7 @@ def callback(objetivo):
 	#selfState = objetivo
 	#State = objetivo
 
+	print "chegou aki"
 	comando = ModelState()
 	comando.pose.position.y = selfState.pose.position.y
 	comando.pose.position.z = selfState.pose.position.z
@@ -78,7 +79,7 @@ def callback(objetivo):
 	
 	pub.publish(comando)
 
-	if(comando.twist.linear.x < 0.01 and comando.twist.linear.y < 0.01 and comando.twist.linear.z < 0.01):
+	if(comando.twist.linear.x == 0 and comando.twist.linear.y == 0 and comando.twist.linear.z == 0):
 		indexold += 1
 
 	flagBlock = 0			
@@ -130,12 +131,10 @@ def RunDrone():
 
 def controle(modelname):
 	print "Entrou na funcao"
-	
-	objetivoMsgs = "objetivo_" + modelname
 
-	
 	rospy.init_node(modelname , anonymous=True)
-	rate = rospy.Rate(0.1) # 0.1hz
+	rate = rospy.Rate(0.8) # 0.1hz
+	#rospy.spin()
 
 	while not rospy.is_shutdown():
 		RunDrone()
@@ -146,7 +145,7 @@ if __name__ == '__main__':
 	global indexold,flagBlock
 	indexold = 0
 	flagBlock = 0
-	print sys.argv
+	#print sys.argv
 	if len(sys.argv) > 1:
 		modelname = sys.argv[1]
 		print 'modelname:' + modelname
@@ -154,8 +153,10 @@ if __name__ == '__main__':
 		print "Favor fornecer o nome de um model ativo"
 		sys.exit(1)	
 
+	objetivoMsgs = "objetivo_" + modelname
+
 	pubind = rospy.Publisher('gazebo/link', Int16, queue_size=1)
-	rospy.Subscriber('gazebo/waypoint', PoseStamped, callback)#objetivoMsgs, mudou antigo Pose	
+	rospy.Subscriber('roteiro/waypoint', PoseStamped, callback)#objetivoMsgs, mudou antigo Pose	
 
 	try:
 		print "entrou"

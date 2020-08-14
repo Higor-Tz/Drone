@@ -30,6 +30,7 @@ def setupGoal(index):
         goal = PoseStamped()
 
         LOCATIONS = [
+        	[8.05, 0, 0, 0],
 			[8.05, 0, 2, 0],
 			[8.05, 26, 2, 0],
 			[-1.95, 26, 2, 0],
@@ -90,7 +91,7 @@ if __name__ == '__main__':
 	global indexold
 	indexold = -1
 	rospy.Subscriber('gazebo/link', Int16, callback)# apelido do topico "gazebo/link" , tipo Int16 (inscreve neste canal de comunicacao)
-	pub = rospy.Publisher('gazebo/waypoint', PoseStamped, queue_size=1)# publica no topico (canal de comunicacao) "gazebo/waypoint" 
+	pub = rospy.Publisher('roteiro/waypoint', PoseStamped, queue_size=1)# publica no topico (canal de comunicacao) "gazebo/waypoint" 
 	rospy.init_node('roteiro' , anonymous=True)
 	print "chegou aki"
 	rospy.spin()
