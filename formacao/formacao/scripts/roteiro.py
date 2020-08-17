@@ -30,7 +30,7 @@ def setupGoal(index):
         goal = PoseStamped()
 
         LOCATIONS = [
-        	[8.05, 0, 0, 0],
+        	[8.05, 0, 0.800001, 0],
 			[8.05, 0, 2, 0],
 			[8.05, 26, 2, 0],
 			[-1.95, 26, 2, 0],
@@ -38,7 +38,7 @@ def setupGoal(index):
 			[-1.95, 26, 2, 0],
 			[-11.95, 26, 2, 0],
 			[-11.95, 0, 2, 0],
-			[-11.95, 0, 0.81, 0]
+			[-11.95, 0, 0.800001, 0]
 		]
 		
 #		x, y, z, yaw = position #linha do Locations
@@ -61,17 +61,21 @@ def comunicacao(index):
 	
 
 def callback(index): # tratamento da recepicao
-	global indexold
 	indexnew = int(index.data)
 	print "entrou em callback"
-	if(indexnew!=indexold):
-		indexold = indexnew
-		print "recebeu o novo index"
-		comunicacao(indexnew)
-		print "saiu da comunicacao"
-		print indexold
+	comunicacao(indexnew)
 
 
+# def callback(index): # tratamento da recepicao
+# 	global indexold
+# 	indexnew = int(index.data)
+# 	print "entrou em callback"
+# 	if(indexnew!=indexold):
+# 		indexold = indexnew
+# 		print "recebeu o novo index"
+# 		comunicacao(indexnew)
+# 		print "saiu da comunicacao"
+# 		print indexold
 
 #for l in LOCATIONS:
 #    goal = setupGoal(l)

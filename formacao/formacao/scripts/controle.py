@@ -36,7 +36,7 @@ def callback(objetivo):
 	global indexold,flagBlock
 	print objetivo
 
-	pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=10)#10
+	pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=1)#10
 	rospy.wait_for_service('gazebo/get_model_state')
 	
 	GetState = rospy.ServiceProxy('gazebo/get_model_state', GetModelState)
@@ -66,20 +66,23 @@ def callback(objetivo):
 	comando.twist.linear.x = 0.5*(objetivo.pose.position.x - selfState.pose.position.x)
 	comando.twist.linear.y = 0.5*(objetivo.pose.position.y - selfState.pose.position.y)
 	comando.twist.linear.z = 0.5*(objetivo.pose.position.z - selfState.pose.position.z)	
-	
+	#print selfState.pose.position.x
+	#print selfState.pose.position.y
+	print selfState.pose.position.z
+	print objetivo.pose.position.z
 	#comando.twist.linear.x = 0.5*(objetivo.pose.position.x - State.pose.position.x)
 	#comando.twist.linear.y = 0.5*(objetivo.pose.position.y - State.pose.position.y)
 	#comando.twist.linear.z = 0.5*(objetivo.pose.position.z - State.pose.position.z)		
 
-	comando.twist.angular.x = 0.25*(obj_roll - self_roll)
-	comando.twist.angular.y = 0.25*(obj_pitch - self_pitch)
-	comando.twist.angular.z = 0.25*(obj_yaw - self_yaw)
+	#comando.twist.angular.x = 0.25*(obj_roll - self_roll)
+	#comando.twist.angular.y = 0.25*(obj_pitch - self_pitch)
+	#comando.twist.angular.z = 0.25*(obj_yaw - self_yaw)
 
 	comando.model_name = modelname
 	
 	pub.publish(comando)
 
-	if(comando.twist.linear.x == 0 and comando.twist.linear.y == 0 and comando.twist.linear.z == 0):
+	if(comando.twist.linear.x < 0.01 and comando.twist.linear.y < 0.01 and comando.twist.linear.z < 0.01):
 		indexold += 1
 
 	flagBlock = 0			
@@ -133,7 +136,7 @@ def controle(modelname):
 	print "Entrou na funcao"
 
 	rospy.init_node(modelname , anonymous=True)
-	rate = rospy.Rate(0.8) # 0.1hz
+	rate = rospy.Rate(5) # 0.1hz
 	#rospy.spin()
 
 	while not rospy.is_shutdown():
