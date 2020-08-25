@@ -21,7 +21,7 @@ The DGF method follows the following algorithm:
 - 2. Leader position PL = (XL, YL, ZL) is received by the follower;
 - 3. The objective position of the PO follower receives PL + d = (XL + x, YL + y, ZL + z);
 - 4. The objective PO position is transferred to the UAV control;
-- 5. Steps 2 through 4 are repeated in a loop.
+- 5. Steps ii through iv are repeated in a loop.
 
 ## Dependencies:
  - *ROS & Gazebo*
