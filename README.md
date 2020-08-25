@@ -17,14 +17,15 @@ The persecution method used in this simulation is the Global Fixed Difference (D
 All movements that the main drone (the one with coordinates in the script) receives the other drones will also receive, as soon as they perform movements similar to the main drone, they always stop with the same distance from the main drone that was stipulated 
 initially.
 The DGF method follows the following algorithm:
-1. The relative position of the follower in relation to the leader is defined before the chase occurs (the vector d = (x, y, z) is defined);
-2. Leader position PL = (XL, YL, ZL) is received by the follower;
-3. The objective position of the PO follower receives PL + d = (XL + x, YL + y, ZL + z);
-4. The objective PO position is transferred to the UAV control;
-5. Steps 2 through 4 are repeated in a loop.
+- 1. The relative position of the follower in relation to the leader is defined before the chase occurs (the vector d = (x, y, z) is defined);
+- 2. Leader position PL = (XL, YL, ZL) is received by the follower;
+- 3. The objective position of the PO follower receives PL + d = (XL + x, YL + y, ZL + z);
+- 4. The objective PO position is transferred to the UAV control;
+- 5. Steps 2 through 4 are repeated in a loop.
 
 ## Dependencies:
  - *ROS & Gazebo*
+
 In the simulation, the ROS (Robotic Operating System) is used to create nodes and communication topics between the algorithms written in Python and Gazebo. Gazebo is a 3D simulation platform, with the ability to simulate robots in different environments, it is possible to build environments such as streets, tracks, rooms, among other environments, in addition to being able to manipulate different types of robots in these environments.
 The communication between the parties is done via the Linux terminal, where the integration of ros and gazebo is done, through the “gazebo_ros_pkgs” packages, in the terminal  where we start the gazebo, we call the algorithms that create the communication bridge between the drones on the scene and also we started the flight plan.
 
