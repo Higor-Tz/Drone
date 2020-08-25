@@ -15,7 +15,7 @@ movZ = 0.0
 
 def movimentacao():
 	objetivoMsgs = "objetivo_" + modelname
-	pub = rospy.Publisher(objetivoMsgs, Pose, queue_size=10)
+	pub = rospy.Publisher(objetivoMsgs, Pose, queue_size=1)
 	rospy.init_node('movimentacaoDGF', anonymous=True)
 	rate = rospy.Rate(10) # 10hz
 

@@ -136,7 +136,7 @@ def controle(modelname):
 	print "Entrou na funcao"
 
 	rospy.init_node(modelname , anonymous=True)
-	rate = rospy.Rate(5) # 0.1hz
+	rate = rospy.Rate(0.5) # 0.5hz, uma mensagem a cada 2 segundos
 	#rospy.spin()
 
 	while not rospy.is_shutdown():

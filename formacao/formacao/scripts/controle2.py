@@ -18,7 +18,7 @@ def quaternion2euler(orientation):
 	return roll, pitch, yaw
 
 def callback(objetivo):
-	pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=10)
+	pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size=1)
 	rospy.wait_for_service('gazebo/get_model_state')
 	
 	GetState = rospy.ServiceProxy('gazebo/get_model_state', GetModelState)
@@ -39,13 +39,13 @@ def callback(objetivo):
 	obj_roll, obj_pitch, obj_yaw = quaternion2euler(objetivo.orientation)
 
 
-	comando.twist.linear.x = 0.5*(objetivo.position.x - selfState.pose.position.x)
-	comando.twist.linear.y = 0.5*(objetivo.position.y - selfState.pose.position.y)
-	comando.twist.linear.z = 0.5*(objetivo.position.z - selfState.pose.position.z)
+	comando.twist.linear.x = 10.5*(objetivo.position.x - selfState.pose.position.x)
+	comando.twist.linear.y = 10.5*(objetivo.position.y - selfState.pose.position.y)
+	comando.twist.linear.z = 10.5*(objetivo.position.z - selfState.pose.position.z)
 
-	comando.twist.angular.x = 0.25*(obj_roll - self_roll)
-	comando.twist.angular.y = 0.25*(obj_pitch - self_pitch)
-	comando.twist.angular.z = 0.25*(obj_yaw - self_yaw)
+	comando.twist.angular.x = 10.25*(obj_roll - self_roll)
+	comando.twist.angular.y = 10.25*(obj_pitch - self_pitch)
+	comando.twist.angular.z = 10.25*(obj_yaw - self_yaw)
 
 	comando.model_name = modelname
 	
