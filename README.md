@@ -37,4 +37,4 @@ The Roteiro Script, has an essential role in this project, through it the user d
 This is the path of the leading drone, which is the one that will constantly communicate with the Roteiro, the drone is initially resting at position X = 8.05 Y = 0 and Z = 0.81, it will rise to a height of 2 meters, it will fly over 26 meters ahead, so together with the follower they will have flown over all the elements of the 1st division of the greenhouse, after that they will fly over 10 meters to the left, 26 meters backwards, they will have already flown over the elements of the 2nd division , to map the rest, remembering that it is a closed place, the drone will advance 26 meters forward, 10 meters to the left and 26 meters backwards in this way, mapping the 3rd and last division of the greenhouse, the drones will descend at the height of the lower base of the 3rd greenhouse division and rest with the coordinates of the leader being X = -11.95, Y = 0 and Z = 0.81.
 
 ## Results:
-https://www.youtube.com/watch?v=UQhVMauFclg (video in Portuguese-Br)
+https://youtu.be/qH6cqThx5L0 (video in Portuguese-Br)
